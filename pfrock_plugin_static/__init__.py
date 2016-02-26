@@ -1,0 +1,4 @@
+from pfrock.core.register import PfrockPluginRegister
+from pfrock_plugin_static.index import PfrockStaticPlugin
+
+PfrockPluginRegister.register(PfrockStaticPlugin)
