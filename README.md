@@ -1,6 +1,6 @@
-# pfrock
+# pfrock-plugin-static
 
-static http mock plugin for pfrock
+static http mock plugin for pfrock https://github.com/knightliao/pfrock
     
        _ (`-.            _  .-')                          .-. .-')
       ( (OO  )          ( \( -O )                         \  ( OO )
@@ -12,3 +12,9 @@ static http mock plugin for pfrock
      |  |       \|  |_)  |  |\  \    `'  '-'  '(_'  '--'\ |  |\   \
      `--'        `--'    `--' '--'     `-----'    `-----' `--' '--'
 
+## pypi
+
+https://pypi.python.org/pypi/pfrock-plugin-static
+
+- dev(develop branch): 0.2.1.dev4
+- master(stable branch)：0.2.1.dev4
