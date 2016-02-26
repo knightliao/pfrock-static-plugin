@@ -5,8 +5,7 @@ import os
 from tornado import gen
 from tornado.web import StaticFileHandler
 
-from pfrock.core.constants import ROUTER_PATH
-from pfrock_static_plugin.handlers import ROUTER_STATIC_FILE
+from pfrock_static_plugin.handlers import ROUTER_STATIC_FILE, ROUTER_PATH
 
 
 class FrockStaticFileHandler(StaticFileHandler):
