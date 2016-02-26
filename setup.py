@@ -35,11 +35,12 @@ def find_version(*file_paths):
 
 
 setup(
-    name='pfrock-plugin-static',
-    version=find_version("pfrock_plugin_static/__init__.py"),
+    name='pfrock-static-plugin',
+    version=find_version("pfrock_static_plugin/__init__.py"),
     description='static http mock plugin for pfrock',
     long_description=readme,
     author='knightliao',
+    license="http://www.apache.org/licenses/LICENSE-2.0",
     author_email='knightliao@gmail.com',
     url='https://github.com/knightliao/pfrock-plugin-static',
     platforms='any',

@@ -2,7 +2,7 @@
 pfrock-plugin-static
 ====================
 
-static http mock plugin for pfrock
+static http mock plugin for pfrock https://pypi.python.org/pypi/pfrock
 
 .. pfrock-plugin-static: https://pypi.python.org/pypi/pfrock-plugin-static
 
