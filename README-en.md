@@ -1,4 +1,4 @@
-# pfrock
+# pfrock-static-plugin
 
 static http mock plugin for pfrock
     

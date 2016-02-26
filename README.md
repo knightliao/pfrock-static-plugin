@@ -1,4 +1,4 @@
-# pfrock-plugin-static
+# pfrock-static-plugin
 
 static http mock plugin for pfrock https://github.com/knightliao/pfrock
     
