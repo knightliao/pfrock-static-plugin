@@ -1,0 +1,9 @@
+====================
+pfrock-plugin-static
+====================
+
+static http mock plugin for pfrock
+
+.. pfrock-plugin-static: https://pypi.python.org/pypi/pfrock-plugin-static
+
+for more details, see github: https://github.com/knightliao/pfrock-plugin-static

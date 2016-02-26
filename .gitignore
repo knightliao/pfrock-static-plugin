@@ -1,3 +1,7 @@
 *.pyc
 .idea
 /demo.py
+dist
+build
+pfrock.egg-info
+pfrock_plugin_static.egg-info
