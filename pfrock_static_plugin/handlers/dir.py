@@ -4,7 +4,7 @@
 from tornado.web import StaticFileHandler
 
 from pfrock.core.constants import ROUTER_PATH
-from pfrock_plugin_static.handlers import ROUTER_STATIC_DIR
+from pfrock_static_plugin.handlers import ROUTER_STATIC_DIR
 
 
 class FrockStaticDirHandler(StaticFileHandler):

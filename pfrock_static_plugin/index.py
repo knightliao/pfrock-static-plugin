@@ -2,9 +2,9 @@
 # coding=utf8
 from pfrock.core.constants import ROUTER, ROUTER_PATH
 from pfrock.core.plugin import PfrockPlugin
-from pfrock_plugin_static.handlers import ROUTER_STATIC_FILE, ROUTER_STATIC_DIR
-from pfrock_plugin_static.handlers.dir import FrockStaticDirHandler
-from pfrock_plugin_static.handlers.file import FrockStaticFileHandler
+from pfrock_static_plugin.handlers import ROUTER_STATIC_FILE, ROUTER_STATIC_DIR
+from pfrock_static_plugin.handlers.dir import FrockStaticDirHandler
+from pfrock_static_plugin.handlers.file import FrockStaticFileHandler
 
 STATIC_HANDLER_MAP = {
     ROUTER_STATIC_DIR: FrockStaticDirHandler.get_handler,
