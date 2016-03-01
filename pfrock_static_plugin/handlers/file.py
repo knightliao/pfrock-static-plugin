@@ -2,7 +2,7 @@
 # coding=utf8
 import os
 
-from tornado import gen
+import tornado.gen
 from tornado.web import StaticFileHandler
 
 from pfrock_static_plugin.handlers import ROUTER_STATIC_FILE, ROUTER_PATH
@@ -22,10 +22,27 @@ class FrockStaticFileHandler(StaticFileHandler):
         self.dir_name, self.file_name = os.path.split(path)
         super(FrockStaticFileHandler, self).initialize(self.dir_name)
 
-    @gen.coroutine
+    @tornado.gen.coroutine
     def get(self, path=None, include_body=True):
         # Ignore 'path'.
-        super(FrockStaticFileHandler, self).get(self.file_name, include_body)
+        try:
+            yield super(FrockStaticFileHandler, self).get(self.file_name, include_body)
+        except Exception, e:
+            # when no found , return 404 just ok
+            self.set_status(404)
+
+    def compute_etag(self):
+        """Sets the ``Etag`` header based on static url version.
+
+        This allows efficient ``If-None-Match`` checks against cached
+        versions, and sends the correct ``Etag`` for a partial response
+        (i.e. the same ``Etag`` as the full file).
+
+        .. versionadded:: 3.1
+        """
+        if not hasattr(self, 'absolute_path'):
+            return None
+        return super(FrockStaticFileHandler, self).compute_etag()
 
     @staticmethod
     def get_handler(url, options):
