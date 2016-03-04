@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=utf8
 
-from pfrock_static_plugin.handlers import ROUTER_STATIC_FILE, ROUTER_STATIC_DIR, ROUTER_PATH, ROUTER
+from pfrock_static_plugin.handlers import ROUTER_STATIC_FILE, ROUTER_STATIC_DIR, ROUTER_PATH, ROUTER, ROUTER_HEADER
 from pfrock_static_plugin.handlers.dir import FrockStaticDirHandler
 from pfrock_static_plugin.handlers.file import FrockStaticFileHandler
 
@@ -20,10 +20,20 @@ class PfrockStaticPlugin(object):
 
         # nesting config
         if ROUTER in options:
+
+            # parent header setting
+            parent_header = options[ROUTER_HEADER] if ROUTER_HEADER in options else {}
+
             for one_route in options[ROUTER]:
-                cur_options = dict(options)
-                cur_options.update(one_route)
-                handler = self.__parser_one(url_path, cur_options)
+
+                # copy parent header to child header, child setting first
+                copy_header = dict(parent_header)
+                if ROUTER_HEADER in one_route:
+                    copy_header.update(one_route[ROUTER_HEADER])
+                one_route[ROUTER_HEADER] = copy_header
+
+                # get header
+                handler = self.__parser_one(url_path, one_route)
                 if handler:
                     handler_list.append(handler)
         else:
