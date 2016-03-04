@@ -5,6 +5,7 @@ import logging
 
 ROUTER_STATIC_FILE = 'file'
 ROUTER_STATIC_DIR = 'dir'
+ROUTER_HEADER = 'headers'
 
 ROUTER_PATH = "path"
 ROUTER = 'routes'

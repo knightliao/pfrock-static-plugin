@@ -1,15 +1,13 @@
 #!/usr/bin/env python
 # coding=utf8
 
-from tornado.web import StaticFileHandler
-
 from pfrock_static_plugin.handlers import ROUTER_STATIC_DIR, ROUTER_PATH
+from pfrock_static_plugin.handlers.base import FrockStaticBaseHandler
 
 
-class FrockStaticDirHandler(StaticFileHandler):
+class FrockStaticDirHandler(FrockStaticBaseHandler):
     def initialize(self, path, default_filename=None, **kwargs):
-        self.root = path
-        self.default_filename = default_filename
+        super(FrockStaticDirHandler, self).initialize(path, default_filename, **kwargs)
 
     def post(self):
         return self.get()

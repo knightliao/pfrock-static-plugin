@@ -20,8 +20,10 @@ class PfrockStaticPlugin(object):
 
         # nesting config
         if ROUTER in options:
-            for route in options[ROUTER]:
-                handler = self.__parser_one(url_path, route)
+            for one_route in options[ROUTER]:
+                cur_options = dict(options)
+                cur_options.update(one_route)
+                handler = self.__parser_one(url_path, cur_options)
                 if handler:
                     handler_list.append(handler)
         else:
