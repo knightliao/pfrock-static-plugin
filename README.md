@@ -16,5 +16,5 @@ static http mock plugin for pfrock https://github.com/knightliao/pfrock
 
 https://pypi.python.org/pypi/pfrock-plugin-static
 
-- dev(develop branch): 0.2.1.dev6
-- master(stable branch)：0.2.1.dev6
+- dev(develop branch): 0.2.3
+- master(stable branch)：0.2.3
