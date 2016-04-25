@@ -1,13 +1,16 @@
 #!/usr/bin/env python
 # coding=utf8
 
-from pfrock_static_plugin.handlers import ROUTER_STATIC_FILE, ROUTER_STATIC_DIR, ROUTER_PATH, ROUTER, ROUTER_HEADER
+from pfrock_static_plugin.handlers import ROUTER_STATIC_FILE, ROUTER_STATIC_DIR, ROUTER_PATH, ROUTER, ROUTER_HEADER, \
+    ROUTER_STATIC_FILES
 from pfrock_static_plugin.handlers.dir import FrockStaticDirHandler
 from pfrock_static_plugin.handlers.file import FrockStaticFileHandler
+from pfrock_static_plugin.handlers.files import FrockStaticFilesHandler
 
 STATIC_HANDLER_MAP = {
     ROUTER_STATIC_DIR: FrockStaticDirHandler.get_handler,
     ROUTER_STATIC_FILE: FrockStaticFileHandler.get_handler,
+    ROUTER_STATIC_FILES: FrockStaticFilesHandler.get_handler,
 }
 
 
