@@ -35,8 +35,14 @@ class FrockStaticFilesHandler(FrockStaticFileHandler):
         for rule_file in cur_rule_files:
             rule = rule_file[ROUTER_STATIC_FILE_RULE]
             try:
-                variable_rule_parser = VariableRuleParser(rule, True, argument_map)
-                is_valid = variable_rule_parser.evaluate_variable()
+
+                # no rule should pass
+                if rule is "":
+                    is_valid = True
+                else:
+                    variable_rule_parser = VariableRuleParser(rule, True, argument_map)
+                    is_valid = variable_rule_parser.evaluate_variable()
+
                 if is_valid is True:
                     has_found_rule = True
                     target_file_path = rule_file[ROUTER_STATIC_FILE]
@@ -58,7 +64,9 @@ class FrockStaticFilesHandler(FrockStaticFileHandler):
         valid_rule_files = []
         rule_files = options[ROUTER_STATIC_FILES] if ROUTER_STATIC_FILES in options else []
         for rule_file in rule_files:
-            if ROUTER_STATIC_FILE_RULE in rule_file and ROUTER_STATIC_FILE in rule_file:
+            if ROUTER_STATIC_FILE_RULE not in rule_file:
+                rule_file[ROUTER_STATIC_FILE_RULE] = ""
+            if ROUTER_STATIC_FILE in rule_file:
                 if os.path.exists(rule_file[ROUTER_STATIC_FILE]):
                     valid_rule_files.append(rule_file)
 
